@@ -39,7 +39,7 @@ handler.handleReqRes = (req, res) => {
   req.on("end", () => {
     realData += decoder.end();
     requestProperties.body = parseJSON(realData);
-    console.log(trimmedPath);
+    console.log(requestProperties);
     choosenHandler(requestProperties, (statusCode, payload) => {
       statusCode = typeof statusCode === "number" ? statusCode : 500;
       payload = typeof payload === "object" ? payload : {};
